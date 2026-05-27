@@ -1,0 +1,728 @@
+/* ==========================================================================
+   CSS3 EXERCISES: PORTAL DESIGN SYSTEM
+   Theme: Local Community Event Portal (Modern Dark Glassmorphism)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Reset & Global Selectors
+   ========================================================================== */
+
+/* CSS3 Exercise 3: Universal selector (*) to reset margin/padding, ensure border-box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS3 Exercise 4: Body styling with background color fallback and premium radial gradient */
+body {
+    font-family: 'Outfit', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+    background-attachment: fixed;
+    color: #f1f5f9;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* CSS3 Exercise 3: Element selector to style all <h2> tags with high-contrast gradient text */
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.025em;
+    display: inline-block;
+}
+
+/* CSS3 Exercise 3: Grouping selector for h3, p to establish consistent line spacing and color */
+h3, p {
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+h3 {
+    color: #f1f5f9;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* HTML5 Ex 3: .highlight class style for bold focus accenting */
+.highlight {
+    background: linear-gradient(120deg, rgba(56, 189, 248, 0.2) 0%, rgba(129, 140, 248, 0.2) 100%);
+    color: #38bdf8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Helper descriptive labels for sections */
+.section-desc {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   2. Header & Navigation Styles
+   ========================================================================== */
+
+/* CSS3 Exercise 3: ID selector #mainHeader for styling the sticky navigation banner */
+#mainHeader {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* CSS3 Exercise 6: List Styling & Navigation Layout */
+nav ul.nav-links {
+    list-style-type: none; /* Remove bullets from navigation menus */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* CSS3 Exercise 6: Link Styling with custom margins/paddings and interactive pseudo-classes */
+nav ul.nav-links li {
+    margin: 0;
+    padding: 4px 8px; /* Padding for tap targets */
+}
+
+/* CSS3 Exercise 6: Anchor pseudo-classes (:link, :visited, :hover, :active) */
+nav ul.nav-links a:link, 
+nav ul.nav-links a:visited {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+}
+
+nav ul.nav-links a:hover {
+    color: #38bdf8;
+    transform: translateY(-1px);
+}
+
+nav ul.nav-links a:active {
+    color: #0284c7;
+}
+
+/* Specialized Help Button link design */
+.help-btn {
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.05);
+}
+
+nav ul.nav-links a.help-btn:hover {
+    background: #38bdf8;
+    color: #0f172a !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+
+/* ==========================================================================
+   3. Main Page Layout Grid
+   ========================================================================== */
+
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+/* CSS3 Exercise 3: Class selector .eventCard for styling generic glass containers */
+/* CSS3 Exercise 8: Control card spacing using padding, margin, borders, and shadows */
+.eventCard {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 15px 0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eventCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* ==========================================================================
+   4. Table & Gallery Styles
+   ========================================================================== */
+
+.table-container {
+    overflow-x: auto;
+    background: rgba(30, 41, 59, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* CSS3 Exercise 7: Event admin/archive table layout styles */
+.gallery-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure single collapsed borders */
+    text-align: center; /* Center-align table text content */
+}
+
+.gallery-table caption {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.gallery-table th {
+    background: rgba(15, 23, 42, 0.6);
+    color: #38bdf8;
+    font-weight: 600;
+    padding: 14px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.gallery-table td {
+    padding: 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* CSS3 Exercise 7: Zebra striping using nth-child(even) selector */
+.gallery-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Gallery image elements styled with border class */
+.gallery-img {
+    width: 100%;
+    max-width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: zoom-in;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    border-color: #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.event-caption {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   5. Double-click Image Enlargement Modal (HTML5 Ex 6)
+   ========================================================================== */
+
+.modal-backdrop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 800px;
+    text-align: center;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.modal-content h3 {
+    margin-top: 15px;
+    color: #38bdf8;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #f1f5f9;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: #38bdf8;
+}
+
+/* ==========================================================================
+   6. Video Section Styles
+   ========================================================================== */
+
+.video-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin: 20px 0;
+    aspect-ratio: 16/9;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-status-badge {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #38bdf8;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   7. Form & Registration Layout
+   ========================================================================== */
+
+.register-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.required-star {
+    color: #f87171;
+    margin-left: 2px;
+}
+
+/* Form Fields Input/Select/Textarea Styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #f1f5f9;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* CSS3 Exercise 8: Outline highlight on selected fields in a form */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #38bdf8;
+    outline-offset: 1px;
+    border-color: transparent;
+    background: rgba(15, 23, 42, 0.8);
+}
+
+/* Specific select dropdown arrow fix for dark theme styling */
+select option {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+/* Validation styles */
+.field-error {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.char-counter-wrapper {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 6px;
+    text-align: right;
+}
+
+/* Event Fee Dynamic display styling */
+.fee-display-wrapper {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.fee-badge {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Buttons (CTA, Clear and Geo Widgets) */
+.cta-button {
+    width: 100%;
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    color: #0f172a;
+    font-weight: 700;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(1px);
+}
+
+.clear-pref-button {
+    width: 100%;
+    margin-top: 12px;
+    background: rgba(248, 113, 113, 0.1);
+    color: #f87171;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-pref-button:hover {
+    background: rgba(248, 113, 113, 0.2);
+}
+
+/* Confirmation Output message container */
+.output-wrapper {
+    margin-top: 20px;
+}
+
+.confirmation-success {
+    display: block;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    display: none; /* Shown dynamically upon form completion */
+}
+
+/* ==========================================================================
+   8. Sidebar Geolocation & Sandbox widgets
+   ========================================================================== */
+
+.geo-button {
+    width: 100%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.geo-button:hover {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.geo-info-box {
+    margin-top: 15px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+.geo-placeholder {
+    color: #64748b;
+    font-style: italic;
+    text-align: center;
+}
+
+.geo-data {
+    color: #e2e8f0;
+}
+
+/* Sandbox comparison grid layouts */
+.demo-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.demo-box {
+    background: rgba(129, 140, 248, 0.2);
+    border: 1px solid #818cf8;
+    color: #818cf8;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+#demoBox2 {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: #f43f5e;
+    color: #f43f5e;
+}
+
+.demo-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.demo-controls button {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #cbd5e1;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.demo-controls button:hover {
+    background: rgba(255,255,255,0.15);
+    color: #ffffff;
+}
+
+.box-explain-text {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   9. Multi-column Bulletin Article Section
+   ========================================================================== */
+
+.bulletin-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 40px;
+}
+
+/* CSS3 Exercise 9: multi-column layout on article element */
+.bulletin-columns {
+    column-count: 2; /* Format news article in 2 columns like a newspaper */
+    column-gap: 30px; /* Width gap between columns */
+    column-rule: 1px solid rgba(255, 255, 255, 0.15); /* Gray separator line */
+    text-align: justify;
+}
+
+.bulletin-columns h3 {
+    column-span: none; /* Keep heading nested inside columns flow */
+    margin-top: 15px;
+    color: #38bdf8;
+}
+
+.bulletin-columns p {
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   10. Footer Styling
+   ========================================================================== */
+
+.main-footer {
+    background: rgba(15, 23, 42, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 30px 20px;
+    color: #64748b;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #38bdf8;
+}
+
+/* ==========================================================================
+   11. Responsive Web Design (CSS3 Exercise 10)
+   ========================================================================== */
+
+/* CSS3 Ex 10: Media query for screens smaller than 768px (Tablets & Mobile) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Header Navigation Links: Stack vertically instead of horizontal row */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    nav ul.nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    nav ul.nav-links li {
+        width: 100%;
+    }
+    
+    .help-btn {
+        display: block;
+        margin: 10px auto 0;
+        width: 80%;
+    }
+    
+    /* 2. Grid systems: Stack sections vertically instead of columns */
+    .register-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px;
+    }
+    
+    /* 3. Typography & Spacing: Reduce sizes slightly for smaller viewport */
+    h2 {
+        font-size: 1.8rem; /* Smaller section headings */
+    }
+    
+    .main-content {
+        margin: 20px auto;
+    }
+    
+    /* 4. Table and Image size responsiveness */
+    .gallery-table th, 
+    .gallery-table td {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+    
+    .gallery-img {
+        max-width: 100%; /* Fully flexible with screen percentages */
+        height: auto;
+        aspect-ratio: 16/10;
+        border-width: 2px;
+    }
+    
+    /* 5. Newspaper columns: Collapse to single column on small screens */
+    .bulletin-columns {
+        column-count: 1; /* Remove columns for readable mobile scrolling */
+        column-gap: 0;
+        column-rule: none;
+    }
+}
