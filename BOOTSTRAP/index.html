@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Civic Portal | Metro Council</title>
+    
+    <!-- Exercise 1.1: Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Exercise 17.1: Bootstrap Icons via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom styling Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+            padding-bottom: 80px; /* Offset for fixed footer */
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(15, 118, 110, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         EXERCISE 10.1 & 6.1: Responsive Flex Navbar
+         ========================================== -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow-sm px-3">
+        <div class="container-fluid">
+            <!-- Brand Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
+                <i class="bi bi-bank2 text-info"></i> Metro Civic Hub
+            </a>
+            
+            <!-- Collapsible Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#civicNavbar" aria-controls="civicNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Links & Search -->
+            <div class="collapse navbar-collapse" id="civicNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0 flex-column flex-md-row">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registry">Registry</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">Updates</a></li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search portal..." aria-label="Search">
+                    <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         EXERCISE 7: Typography & Jumbotron Header
+         ========================================== -->
+    <div class="container my-4">
+        <div class="p-5 mb-4 hero-banner rounded-3 text-center text-md-start">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-3 fw-bold">Metro City Council Portal</h1>
+                    <p class="lead mt-3">Empowering citizens through state-of-the-art interactive systems, responsive grids, and direct access to municipal registrations.</p>
+                    <p class="text-light opacity-75 small"><i class="bi bi-info-circle"></i> Compiled & designed using <strong class="text-uppercase text-info">Bootstrap 5</strong> design systems.</p>
+                </div>
+                <div class="col-md-4 text-center d-none d-md-block">
+                    <i class="bi bi-shield-check text-info" style="font-size: 8rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 10.2: Navigation Tabs & Pills
+         ========================================== -->
+    <div class="container mb-5">
+        <ul class="nav nav-pills mb-3 justify-content-center justify-content-md-start" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" type="button" role="tab">All Services</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-events-tab" data-bs-toggle="pill" type="button" role="tab">Upcoming Events</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-form-tab" data-bs-toggle="pill" type="button" role="tab">Bookings Form</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 3 & 4.2: Grid Columns & Layouts
+         ========================================== -->
+    <div class="container my-5">
+        <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-grid-3x3-gap"></i> Responsive Event Showcase</h2>
+        
+        <!-- Exercise 3.1 & 3.2: 3 Columns: mobile stacks, tablets 2-per-row, desktop 3-per-row -->
+        <div class="row g-4">
+            
+            <!-- Column 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- Exercise 11.1 & 15.2: Cards with shadows and rounded features -->
+                <div class="card h-100 shadow-sm border-0 profile-premium-card">
+                    <!-- Exercise 16.2: Badge overlay over image using relative/absolute positioning -->
+                    <div class="position-relative">
+                        <img src="images/food_festival.png" class="card-img-top" alt="Food Festival">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-danger rounded-pill shadow-sm"><i class="bi bi-fire"></i> Trending</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark">Annual Food Festival</h5>
+                        <p class="card-text text-secondary">Indulge in a wide array of local culinary masterpieces and organic delicacies from our city's finest artisan chefs.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted fw-bold">$15.00 entry</span>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 profile-premium-card">
+                    <div class="position-relative">
+                        <img src="images/art_exhibition.png" class="card-img-top" alt="Art Exhibition">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-success rounded-pill shadow-sm"><i class="bi bi-star"></i> Featured</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark">Modern Art Gallery</h5>
+                        <p class="card-text text-secondary">An intimate exhibition of contemporary sculptures, raw acrylic paintings, and live pottery/craft demonstrations.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted fw-bold">$25.00 entry</span>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 profile-premium-card">
+                    <div class="position-relative">
+                        <img src="images/music_concert.png" class="card-img-top" alt="Twilight Concert">
+                        <span class="position-absolute top-0 start-0 m-3 badge bg-info text-dark rounded-pill shadow-sm"><i class="bi bi-calendar-event"></i> Outdoor</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-dark">Twilight Park Concert</h5>
+                        <p class="card-text text-secondary">Experience beautiful live orchestra and acoustic indie performances under the stars with food truck support.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted fw-bold">$35.00 entry</span>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 4.1, 5, 14.2: Layout, Sidebar & Reordering
+         ========================================== -->
+    <div class="container my-5" id="registry">
+        <div class="row align-items-center justify-content-center g-4">
+            
+            <!-- Exercise 14.2 & 4.1: Sidebar (col-md-3) displaying only on md and above -->
+            <div class="col-md-3 d-none d-md-block order-md-1">
+                <div class="card bg-gradient bg-dark text-white p-3 shadow rounded-lg border-0">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-layout-sidebar-inset"></i> Admin Bulletin</h5>
+                    <p class="small text-secondary-emphasis">This sidebar widget is responsive and collapses entirely on mobile layouts, focusing mobile citizens' attention onto core content registries.</p>
+                    <div class="border-top border-secondary pt-2 mt-2">
+                        <span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle"></i> Notice</span>
+                        <p class="small mt-1 mb-0">Office closes early on Friday for maintenance work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area (col-md-9) with column reordering (Exercise 5) -->
+            <div class="col-12 col-md-9 order-md-2">
+                <div class="p-4 bg-white border border-light shadow-sm rounded-3">
+                    <h2 class="h4 fw-bold text-dark mb-3"><i class="bi bi-card-text"></i> Quick Portal Statistics</h2>
+                    <p class="text-muted">A quick review of our event database numbers. Structured using 4 equal responsive grid sections (Exercise 4.2).</p>
+                    
+                    <!-- Exercise 4.2: Four equal columns (col-sm-3) -->
+                    <div class="row g-3 text-center mt-2">
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 border rounded bg-light">
+                                <h3 class="fw-bold text-teal mb-0">6</h3>
+                                <small class="text-muted text-uppercase fw-semibold">Total Programs</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 border rounded bg-light">
+                                <h3 class="fw-bold text-teal mb-0">15+</h3>
+                                <small class="text-muted text-uppercase fw-semibold">Key Speakers</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 border rounded bg-light">
+                                <h3 class="fw-bold text-teal mb-0">850</h3>
+                                <small class="text-muted text-uppercase fw-semibold">Registered</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="p-3 border rounded bg-light">
+                                <h3 class="fw-bold text-teal mb-0">98%</h3>
+                                <small class="text-muted text-uppercase fw-semibold">Satisfaction</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 11.2 & 11.1: Cards, Profile & Media Objects
+         ========================================== -->
+    <div class="container my-5">
+        <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-person-bounding-box"></i> Representative Profile</h2>
+        <div class="card p-4 border-0 shadow-sm bg-white">
+            <div class="row align-items-center">
+                <!-- Media Object layout: Image to the left -->
+                <div class="col-12 col-md-3 text-center mb-3 mb-md-0">
+                    <!-- Exercise 15.1: primary borders and rounded circles on image -->
+                    <img src="images/art_exhibition.png" class="rounded-circle border border-primary border-3 shadow" style="width: 140px; height: 140px; object-fit: cover;" alt="Representative Profile">
+                </div>
+                <div class="col-12 col-md-9 text-center text-md-start">
+                    <h4 class="fw-bold mb-1 text-dark">Alderman Arthur Sterling</h4>
+                    <small class="text-muted text-uppercase fw-bold letter-spacing-1">Public Services Representative</small>
+                    <p class="mt-2 text-secondary">"Welcome to the portal. We are dedicated to ensuring that neighborhood programs remain safe, inclusive, and highly accessible to all municipal residents."</p>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start mt-3">
+                        <span class="badge bg-secondary-subtle text-dark border"><i class="bi bi-telephone"></i> 1-800-CITY</span>
+                        <span class="badge bg-secondary-subtle text-dark border"><i class="bi bi-envelope"></i> representative@council.gov</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 8: Floating Labels Login Form
+         ========================================== -->
+    <div class="container my-5" id="bookings">
+        <div class="row justify-content-center g-4">
+            
+            <!-- Floating labels login form (Exercise 8.2) -->
+            <div class="col-12 col-lg-5">
+                <div class="p-4 bg-white shadow-sm border rounded-3 h-100">
+                    <h4 class="fw-bold mb-3 text-dark"><i class="bi bi-shield-lock"></i> Secure Member Login</h4>
+                    <p class="text-muted small">Access customized administrative functions using your registered login credentials.</p>
+                    
+                    <form>
+                        <!-- Email Input with Floating Label -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput"><i class="bi bi-envelope-at text-muted"></i> Email address</label>
+                        </div>
+                        
+                        <!-- Password Input with Floating Label -->
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword"><i class="bi bi-key text-muted"></i> Security Password</label>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-input-label text-muted small" for="rememberMe">Remember my login device</label>
+                        </div>
+                        
+                        <button class="btn btn-teal btn-primary w-100 fw-bold py-2 shadow-sm" type="submit">Sign In to Dashboard</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Standard Registration form layout (Exercise 8.1) -->
+            <div class="col-12 col-lg-7">
+                <div class="p-4 bg-white shadow-sm border rounded-3 h-100">
+                    <h4 class="fw-bold mb-3 text-dark"><i class="bi bi-pencil-square"></i> General Event Registration</h4>
+                    <p class="text-muted small">Standard reservation form using Bootstrap control sizing and styling parameters.</p>
+                    
+                    <form>
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
+                                <label class="form-label text-muted small fw-bold">First Name</label>
+                                <input type="text" class="form-control" placeholder="Jane" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label text-muted small fw-bold">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted small fw-bold">Event Category</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-tag"></i></span>
+                                <select class="form-select" required>
+                                    <option value="" disabled selected>-- Select event type --</option>
+                                    <option>Annual Food Festival</option>
+                                    <option>Modern Art Gallery</option>
+                                    <option>Twilight Park Concert</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="accommodationSwitch">
+                                <label class="form-check-label text-muted small" for="accommodationSwitch">Request special accommodations assistance</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary fw-bold" onclick="alert('Form submission simulation successful!'); return false;">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 12: Pricing Section demonstrating Spacing
+         ========================================== -->
+    <div class="container my-5" id="pricing">
+        <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-currency-dollar"></i> Spacing & Pricing Layout</h2>
+        
+        <!-- Spacing utilities to create padding and margins -->
+        <div class="row g-4 justify-content-center text-center">
+            
+            <!-- Standard card -->
+            <div class="col-12 col-md-4">
+                <div class="card p-4 border border-light-subtle shadow-sm bg-white rounded-3">
+                    <h5 class="fw-bold text-uppercase text-muted">Free Programs</h5>
+                    <!-- Spacing: py-3 -->
+                    <div class="py-3">
+                        <span class="display-4 fw-bold text-dark">$0</span>
+                        <span class="text-muted">/ event</span>
+                    </div>
+                    <ul class="list-unstyled mb-4 py-2 small text-secondary">
+                        <li class="mb-2"><i class="bi bi-check2 text-success"></i> Farmers Markets</li>
+                        <li class="mb-2"><i class="bi bi-check2 text-success"></i> Voluntary Eco Cleanups</li>
+                        <li><i class="bi bi-x text-danger"></i> Audio guides or tour passes</li>
+                    </ul>
+                    <button class="btn btn-outline-teal btn-outline-primary rounded-pill w-100">Browse Free</button>
+                </div>
+            </div>
+
+            <!-- Premium card -->
+            <div class="col-12 col-md-4">
+                <div class="card p-4 border-primary shadow bg-dark text-white rounded-3">
+                    <h5 class="fw-bold text-uppercase text-info">Premium Events</h5>
+                    <div class="py-3">
+                        <span class="display-4 fw-bold">$15-$35</span>
+                        <span class="text-light opacity-50">/ event</span>
+                    </div>
+                    <ul class="list-unstyled mb-4 py-2 small text-light opacity-75">
+                        <li class="mb-2"><i class="bi bi-check2 text-info"></i> Music Concerts</li>
+                        <li class="mb-2"><i class="bi bi-check2 text-info"></i> Food & Art Festivals</li>
+                        <li><i class="bi bi-check2 text-info"></i> Free Guided Audio Tour Pass</li>
+                    </ul>
+                    <button class="btn btn-info rounded-pill w-100 fw-bold">Register Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 18.2: Accordion updates
+         ========================================== -->
+    <div class="container my-5" id="faq">
+        <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-newspaper"></i> Weekly Municipal Updates</h2>
+        
+        <div class="accordion shadow-sm" id="civicAccordion">
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        1. $2.5 Million Solar Module Program Authorized
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#civicAccordion">
+                    <div class="accordion-body text-secondary small">
+                        The municipal council has formally authorized a $2.5 million green energy grant to retro-fit all local civic centers with high-efficiency solar panel modules. This eco-friendly campaign is projected to lower operational expenditures by up to 35% over the next fiscal biennium, redirecting funds back to community programs.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2. East-Wing Library Expansion Finishing Details
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#civicAccordion">
+                    <div class="accordion-body text-secondary small">
+                        Construction crews have finalized structural steel framing for the new East-Wing library expansion. The state-of-the-art facility will feature a dedicated children's reading sanctuary, a high-speed digital fabrication workspace complete with 3D printers, and group study chambers. Opening ceremonies are planned for early August.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 9: Button Groups & Toggle Button States
+         ========================================== -->
+    <div class="container my-5 text-center">
+        <h4 class="fw-bold text-dark mb-3"><i class="bi bi-sliders"></i> Alert Settings Playground</h4>
+        
+        <!-- Standard Button Group (Exercise 9.2) -->
+        <div class="btn-group me-3 mb-2" role="group">
+            <button type="button" class="btn btn-outline-secondary">SMS Alerts</button>
+            <button type="button" class="btn btn-outline-secondary">Email Alerts</button>
+            <button type="button" class="btn btn-outline-secondary">No Alerts</button>
+        </div>
+        
+        <!-- Toggle button with checkbox (Exercise 9.2) -->
+        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+        <label class="btn btn-outline-primary mb-2" for="btncheck1"><i class="bi bi-bell"></i> Enable Emergency Push Notifications</label>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 18.1: Interactive JS Modal Trigger
+         ========================================== -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold" id="registerModalLabel"><i class="bi bi-patch-check text-info"></i> Security Booking Confirmation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content p-4">
+                    <p class="text-secondary small">You are about to initiate an official registration query for this city program. A verification pass code will be sent to your civic email address. Do you wish to continue?</p>
+                    <div class="alert alert-info py-2 small mb-0"><i class="bi bi-info-circle"></i> Booking fee will be processed on physical entry to the venue.</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="alert('Verification token dispatched successfully.');" data-bs-dismiss="modal">Proceed Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         EXERCISE 16.1 & 17.1: Fixed Bottom Footer with Icons
+         ========================================== -->
+    <footer class="footer position-fixed bottom-0 start-0 w-100 bg-dark text-white py-3 border-top border-secondary z-3">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <span class="small text-secondary">&copy; 2026 Metro City Council. All rights reserved.</span>
+            
+            <!-- Social network icons (Exercise 17.1) -->
+            <div class="d-flex gap-3 mt-2 mt-md-0 fs-5">
+                <a href="#" class="text-white hover-teal"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white hover-teal"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="text-white hover-teal"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white hover-teal"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exercise 2.2: Bootstrap Bundle JS via CDN (includes Popper for collapses, accordions, modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

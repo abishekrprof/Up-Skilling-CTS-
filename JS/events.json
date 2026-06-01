@@ -1,0 +1,62 @@
+[
+  {
+    "event_id": 1,
+    "title": "Annual Food Festival",
+    "date": "2026-07-15",
+    "category": "food",
+    "seats": 45,
+    "fee": "$15.00",
+    "description": "Indulge in a wide array of local culinary masterpieces and fresh organic delicacies from our city's finest chefs.",
+    "location": "Central Plaza Square"
+  },
+  {
+    "event_id": 2,
+    "title": "Modern Art Gallery",
+    "date": "2026-06-20",
+    "category": "art",
+    "seats": 12,
+    "fee": "$25.00",
+    "description": "An intimate exhibition of premium contemporary sculptures, acrylic paintings, and live art demonstrations.",
+    "location": "East-Side Civic Sanctuary"
+  },
+  {
+    "event_id": 3,
+    "title": "Twilight Park Concert",
+    "date": "2026-08-05",
+    "category": "music",
+    "seats": 150,
+    "fee": "$35.00",
+    "description": "Experience beautiful live orchestra and acoustic indie performances under the stars with food truck vendors.",
+    "location": "Oakridge Nature Reserve"
+  },
+  {
+    "event_id": 4,
+    "title": "Organic Farmers Market",
+    "date": "2026-06-15",
+    "category": "farmers",
+    "seats": 200,
+    "fee": "$0.00 (Free Admission!)",
+    "description": "Freshly harvested fruits, vegetables, honey, and handmade dairy items directly supplied by regional family farms.",
+    "location": "West-Side Recreational Green"
+  },
+  {
+    "event_id": 5,
+    "title": "Artisanal Craft Fair",
+    "date": "2026-07-22",
+    "category": "craft",
+    "seats": 0,
+    "fee": "$5.00",
+    "description": "Dozens of stalls showing traditional pottery, custom jewelry, hand-woven garments, and artisan home decor.",
+    "location": "North-End Civic Hub"
+  },
+  {
+    "event_id": 6,
+    "title": "Green Eco Cleanup",
+    "date": "2026-05-10",
+    "category": "cleanup",
+    "seats": 80,
+    "fee": "$0.00 (Volunteer Program)",
+    "description": "Join our community park cleanup drive. Gloves, tools, and fresh juice drinks will be provided to all volunteers.",
+    "location": "Oakridge Nature Reserve"
+  }
+]

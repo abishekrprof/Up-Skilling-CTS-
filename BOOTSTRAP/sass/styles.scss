@@ -1,0 +1,29 @@
+/* ==========================================================================
+   MASTER SASS COMPILATION ARCHITECTURE (Exercise 19.1 & 19.2)
+   ========================================================================== */
+
+// 1. Import local customized variables overrides first
+@import "variables";
+
+// 2. Import core Bootstrap source files from npm package (as set up in package.json/node_modules)
+// In a compiled Sass environment, this resolves directly to the downloaded Bootstrap package files.
+// For example:
+// @import "bootstrap/scss/bootstrap";
+
+/* 3. Custom Utility Styles Extending Compiled Bootstrap classes */
+.civic-dashboard-header {
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 15%) 100%);
+    box-shadow: 0 4px 15px rgba($primary, 0.25);
+    border-radius: $border-radius-lg;
+}
+
+.profile-premium-card {
+    border-radius: $border-radius;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Dashboard | JS Interactive Portal</title>
+    
+    <!-- External stylesheet for dynamic styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- jQuery for Exercise 14 jQuery Integration -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <h1>🏛️ Metro Civic Events Center</h1>
+            <p>A lightweight, browser-based dynamic registry powered by advanced, modern JavaScript.</p>
+        </header>
+
+        <!-- Search and Filters Panel (Exercise 8 Event Handling) -->
+        <div class="controls-panel">
+            <!-- Search bar: onkeydown and input capture -->
+            <div class="search-wrapper">
+                <input type="text" id="searchBar" placeholder="Quick search event by name..." onkeydown="handleQuickSearch(event)">
+            </div>
+            
+            <!-- Category Filter: onchange action -->
+            <div class="filter-wrapper">
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter" onchange="handleCategoryFilter(this.value)">
+                    <option value="all">-- All Categories --</option>
+                    <option value="food">Annual Food Festival</option>
+                    <option value="art">Modern Art Gallery</option>
+                    <option value="music">Twilight Park Concert</option>
+                    <option value="farmers">Organic Farmers Market</option>
+                    <option value="craft">Artisanal Craft Fair</option>
+                    <option value="cleanup">Green Eco Cleanup</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Layout Split: Main list & interactive closure panel -->
+        <div class="layout-split">
+            
+            <!-- Dynamic Event Cards Section (Exercise 7 DOM Manipulation) -->
+            <main>
+                <!-- Loading Spinner (Exercise 9 Async JS / Spinner loader) -->
+                <div id="loadingSpinner" class="loader-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading community events database from secure mock API...</p>
+                </div>
+                
+                <!-- Target container for Javascript creation -->
+                <div id="eventsGrid" class="events-grid"></div>
+            </main>
+
+            <!-- Real-time analytics dashboard (Exercises 4, 5, 6 scope, closures, objects, arrays) -->
+            <aside class="sidebar-panel">
+                
+                <!-- Category registrations tracked via Closures (Exercise 4) -->
+                <div class="dashboard-card">
+                    <h2>📊 Category Registrations</h2>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; margin-top: -10px;">
+                        <em>Tracked dynamically via closure variables.</em>
+                    </p>
+                    <div id="closureStats">
+                        <div class="stat-item"><span>Annual Food Festival:</span><span id="stat-food">0</span></div>
+                        <div class="stat-item"><span>Modern Art Gallery:</span><span id="stat-art">0</span></div>
+                        <div class="stat-item"><span>Twilight Park Concert:</span><span id="stat-music">0</span></div>
+                        <div class="stat-item"><span>Organic Farmers Market:</span><span id="stat-farmers">0</span></div>
+                        <div class="stat-item"><span>Artisanal Craft Fair:</span><span id="stat-craft">0</span></div>
+                        <div class="stat-item"><span>Green Eco Cleanup:</span><span id="stat-cleanup">0</span></div>
+                    </div>
+                </div>
+
+                <!-- Objects, Prototypes and Object Entries (Exercise 5) -->
+                <div class="dashboard-card">
+                    <h2>🔍 Object Diagnostic Console</h2>
+                    <div id="prototypeConsole" style="background: rgba(15,23,42,0.6); border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.8rem; height: 180px; overflow-y: auto;">
+                        <p style="color: #64748b;">Waiting for a registration transaction...</p>
+                    </div>
+                </div>
+
+                <!-- jQuery & Framework mention (Exercise 14) -->
+                <div class="dashboard-card">
+                    <h2>💡 System Integration</h2>
+                    <div style="font-size: 0.9rem; color: #cbd5e1;">
+                        <p style="margin-bottom: 10px;">
+                            🟢 <strong>jQuery:</strong> Cards are animated using <code>.fadeIn()</code> and <code>.fadeOut()</code> when filtered.
+                        </p>
+                        <p style="margin-bottom: 10px;">
+                            🟢 <strong>Framework Migration:</strong> Moving to modern frameworks like <strong>React</strong> or <strong>Vue</strong> provides visual components, state management (V-DOM updates), and standardized component-level data flows, making large web portals scalable.
+                        </p>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+    <!-- Registration Modal Form (Exercise 11 Working with Forms) -->
+    <div id="registerModal" class="modal-backdrop">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeRegistrationModal()">&times;</button>
+            <h2 id="modalEventTitle">Register for Event</h2>
+            <p>Please enter your information to secure a booking seat.</p>
+            
+            <form id="regForm" onsubmit="submitRegistration(event)">
+                <input type="hidden" id="modalEventId">
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    <small id="nameError" class="error-msg"></small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailAddr">Email Address:</label>
+                    <input type="email" id="emailAddr" placeholder="you@example.com" required>
+                    <small id="emailError" class="error-msg"></small>
+                </div>
+                
+                <button type="submit" id="registerBtn" class="btn-submit-reg">Secure Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- main.js script link (Exercise 1) -->
+    <script src="main.js"></script>
+</body>
+</html>

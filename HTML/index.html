@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HTML5 Exercise 1: Base Template & Semantic Document Structure -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Council | Local Community Event Portal</title>
+    
+    <!-- CSS3 Exercise 5: Google Fonts Integration (Outfit font family) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS3 Exercise 1 & HTML5 Exercise 3: Embedded/Internal CSS for Precedence Demonstration -->
+    <style>
+        /* CSS3 Ex 1: Embedded style in head defining fallback body background */
+        body {
+            background-color: #0f172a; /* Slate background fallback */
+        }
+        
+        /* HTML5 Ex 3: Welcome Banner style with blue background */
+        #welcomeBanner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* HTML5 Ex 3 & CSS3 Ex 8: Visibility/Display Compare classes */
+        .hidden-display {
+            display: none; /* Fully removed from layout stream, no space occupied */
+        }
+        
+        .hidden-visibility {
+            visibility: hidden; /* Invisible, but still occupies its layout space */
+        }
+    </style>
+    
+    <!-- CSS3 Exercise 1: Link External Stylesheet (styles.css) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ==================== NAVIGATION SECTION ==================== -->
+    <!-- HTML5 Exercise 1 & 2: Navigation layout and linking -->
+    <header id="mainHeader">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">🏛️</span> Metro Council
+            </div>
+            
+            <nav>
+                <!-- HTML5 Ex 2: Navigation anchors pointing to local sections via ID matching -->
+                <ul class="nav-links">
+                    <li><a href="#welcome">Home</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#register">Register</a></li>
+                    <li><a href="#bulletin">Bulletin</a></li>
+                    <!-- HTML5 Ex 2: Target blank external link to our Help Center -->
+                    <li><a href="help.html" target="_blank" class="help-btn">Help Center</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT SECTION ==================== -->
+    <main class="main-content">
+        
+        <!-- Welcome Banner Section (HTML5 Exercise 3) -->
+        <section id="welcome">
+            <div id="welcomeBanner">
+                <h2>Welcome Back, Respected Citizen!</h2>
+                <p>We are delighted to have you logged in to the portal. Access all municipal services, event lists, and registrations here.</p>
+                
+                <!-- HTML5 Ex 3: Inline style for special offer span (Red, Bold) -->
+                <p class="promo-text">
+                    <span style="color: #f87171; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.4);">
+                        🔥 SPECIAL OFFER:
+                    </span> 
+                    Register today for any Art Exhibition and get a <span class="highlight">Free Guided Audio Tour Pass</span> at arrival!
+                </p>
+            </div>
+        </section>
+
+        <!-- Image Gallery for Past Events (HTML5 Exercise 4 & CSS3 Exercise 7) -->
+        <section id="events" class="event-gallery-section">
+            <h2>🏆 Past Community Events Gallery</h2>
+            <p class="section-desc">Double-click on any image below to view the enlarged high-definition details of our previous activities.</p>
+            
+            <div class="table-container">
+                <!-- HTML5 Ex 4: 2 rows x 3 columns table of images -->
+                <table class="gallery-table">
+                    <caption>Official City Event Visual Records (Archived)</caption>
+                    <thead>
+                        <tr>
+                            <th>West-Side Programs</th>
+                            <th>Central Districts</th>
+                            <th>East-Side Programs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- Row 1 -->
+                            <td>
+                                <!-- HTML5 Ex 4: alt, title, border class. HTML5 Ex 6: ondblclick image enlarge -->
+                                <img src="images/food_festival.png" alt="Annual Food Festival" title="Annual Food Festival Stalls" class="gallery-img" ondblclick="enlargeImage(this)">
+                                <div class="event-caption">Annual Food Festival</div>
+                            </td>
+                            <td>
+                                <img src="images/art_exhibition.png" alt="Local Art Gallery Exhibition" title="Art & Sculptures Showcase" class="gallery-img" ondblclick="enlargeImage(this)">
+                                <div class="event-caption">Modern Art Gallery</div>
+                            </td>
+                            <td>
+                                <img src="images/music_concert.png" alt="Outdoor Twilight Concert" title="Picnics & Live Music in the Park" class="gallery-img" ondblclick="enlargeImage(this)">
+                                <div class="event-caption">Twilight Park Concert</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!-- Row 2 -->
+                            <td>
+                                <img src="images/farmers_market.png" alt="Farmers Fresh Produce Market" title="Local Organic Vendors" class="gallery-img" ondblclick="enlargeImage(this)">
+                                <div class="event-caption">Organic Farmers Market</div>
+                            </td>
+                            <td>
+                                <img src="images/craft_fair.png" alt="Handicrafts and Pottery Fair" title="Traditional Artisans" class="gallery-img" ondblclick="enlargeImage(this)">
+                                <div class="event-caption">Artisanal Craft Fair</div>
+                            </td>
+                            <td>
+                                <img src="images/park_cleanup.png" alt="Community Park Green Cleanup" title="Volunteers Eco Drive" class="gallery-img" ondblclick="enlargeImage(this)">
+                                <div class="event-caption">Green Eco Cleanup Initiative</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Hidden Modal Backdrop for double-click zoom image enlargement (HTML5 Ex 6) -->
+            <div id="imageModal" class="modal-backdrop" onclick="closeModal()">
+                <div class="modal-content">
+                    <span class="modal-close" onclick="closeModal()">&times;</span>
+                    <img id="enlargedImg" src="" alt="Enlarged community view">
+                    <h3 id="modalCaption"></h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Invite Section (HTML5 Exercise 7) -->
+        <section id="invite" class="video-invite-section">
+            <div class="video-container eventCard">
+                <h2>🎥 Exclusive Video Invitation</h2>
+                <p>Enjoy a short sneak peek of what to expect at our upcoming gatherings. Take a look at last year's event highlights!</p>
+                
+                <!-- HTML5 Ex 7: Video element with source, controls, and oncanplay event -->
+                <div class="video-wrapper">
+                    <video id="inviteVideo" controls width="100%" poster="images/music_concert.png" oncanplay="videoReady()">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- Video status banner updated by oncanplay -->
+                <div id="videoStatus" class="video-status-badge">🔄 Buffering invite video, please wait...</div>
+            </div>
+        </section>
+
+        <!-- Event Registration Form Section (HTML5 Exercise 5 & 6 & 8 & 9) -->
+        <section id="register" class="registration-section">
+            <div class="register-grid">
+                
+                <!-- Registration Form (HTML5 Ex 5) -->
+                <div class="form-container eventCard">
+                    <h2>📝 Citizen Registration Form</h2>
+                    <p>Secure your spot at our upcoming programs. Fields marked with <span style="color: #f87171;">*</span> are mandatory.</p>
+                    
+                    <form id="eventForm" onsubmit="handleFormSubmit(event)">
+                        
+                        <!-- Name Field -->
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required-star">*</span></label>
+                            <!-- HTML5 Ex 5: text input, required, placeholder, autofocus -->
+                            <input type="text" id="fullName" placeholder="Enter your first and last name" required autofocus>
+                        </div>
+                        
+                        <!-- Email Field -->
+                        <div class="form-group">
+                            <label for="userEmail">Email Address <span class="required-star">*</span></label>
+                            <!-- HTML5 Ex 5: email type, placeholder, required -->
+                            <input type="email" id="userEmail" placeholder="you@example.com" required>
+                        </div>
+                        
+                        <!-- Phone Field (HTML5 Ex 6: validated on blur) -->
+                        <div class="form-group">
+                            <label for="userPhone">Phone Number <span class="required-star">*</span></label>
+                            <!-- HTML5 Ex 6: onblur validation triggers telephone check -->
+                            <input type="tel" id="userPhone" placeholder="10-digit mobile number (e.g. 9876543210)" required onblur="validatePhoneNumber(this)">
+                            <small id="phoneError" class="field-error"></small>
+                        </div>
+                        
+                        <!-- Date Field -->
+                        <div class="form-group">
+                            <label for="eventDate">Preferred Attendance Date <span class="required-star">*</span></label>
+                            <!-- HTML5 Ex 5: date picker, required -->
+                            <input type="date" id="eventDate" required>
+                        </div>
+                        
+                        <!-- Event Type Select Dropdown (HTML5 Ex 6: onchange, HTML5 Ex 8: localStorage pre-select) -->
+                        <div class="form-group">
+                            <label for="eventType">Choose Event Type <span class="required-star">*</span></label>
+                            <!-- HTML5 Ex 6: onchange updates price dynamically -->
+                            <select id="eventType" required onchange="handleEventTypeChange(this.value)">
+                                <option value="" disabled selected>-- Select an Event Category --</option>
+                                <option value="food">Annual Food Festival</option>
+                                <option value="art">Modern Art Gallery</option>
+                                <option value="music">Twilight Park Concert</option>
+                                <option value="farmers">Organic Farmers Market</option>
+                                <option value="craft">Artisanal Craft Fair</option>
+                                <option value="cleanup">Green Eco Cleanup</option>
+                            </select>
+                        </div>
+
+                        <!-- Dynamic Event Fee Display Badge (HTML5 Ex 6: onchange fee display) -->
+                        <div class="fee-display-wrapper">
+                            <span>Estimated Booking Fee:</span>
+                            <span id="eventFeeBadge" class="fee-badge">$0.00 (Select event category)</span>
+                        </div>
+                        
+                        <!-- Message Textarea (HTML5 Ex 5: textarea. HTML5 Ex 6: key events character count) -->
+                        <div class="form-group">
+                            <label for="userMessage">Special Accommodations / Feedback</label>
+                            <!-- HTML5 Ex 6: onkeyup event tracks keyboard text length -->
+                            <textarea id="userMessage" rows="4" placeholder="Mention dietary restrictions, accessibility requests, or details" onkeyup="countCharacters(this)"></textarea>
+                            <div class="char-counter-wrapper">
+                                <span id="charCount">0</span> characters typed
+                            </div>
+                        </div>
+
+                        <!-- Submit Button with click events (HTML5 Ex 6: onclick triggers alert confirmation) -->
+                        <button type="submit" id="submitBtn" class="cta-button" onclick="confirmClick(event)">Confirm & Register</button>
+
+                        <!-- Clear Preferences Button (HTML5 Exercise 8) -->
+                        <button type="button" id="clearPrefBtn" class="clear-pref-button" onclick="clearPreferences()">🗑️ Clear Preferences</button>
+
+                        <!-- Output element for confirmation message (HTML5 Exercise 5) -->
+                        <div class="output-wrapper">
+                            <output id="confirmationOutput" class="confirmation-success"></output>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Geolocation and Storage Widget Card (HTML5 Exercise 8 & 9) -->
+                <div class="sidebar-widgets">
+                    
+                    <!-- Geolocation Widget (HTML5 Exercise 9) -->
+                    <div class="widget-card eventCard">
+                        <h3>📍 Local Event GPS Finder</h3>
+                        <p>Locate the civic center closest to your current physical position to fetch custom directions.</p>
+                        
+                        <button type="button" class="geo-button" onclick="findNearbyEvents()">Find Nearby Events</button>
+                        
+                        <div id="geoDisplay" class="geo-info-box">
+                            <p class="geo-placeholder">Coordinates will appear here after location check.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- CSS Box Model visibility vs display demonstration card (CSS3 Exercise 8) -->
+                    <div class="widget-card eventCard">
+                        <h3>📦 Visibility vs. Display comparison</h3>
+                        <p>Learn how the browser handles box layouts when hidden.</p>
+                        
+                        <div class="demo-boxes">
+                            <div id="demoBox1" class="demo-box">Box A (Active)</div>
+                            <div id="demoBox2" class="demo-box">Box B (Target)</div>
+                            <div id="demoBox3" class="demo-box">Box C (Active)</div>
+                        </div>
+                        
+                        <div class="demo-controls">
+                            <button onclick="toggleBoxDisplay()">Toggle `display: none`</button>
+                            <button onclick="toggleBoxVisibility()">Toggle `visibility: hidden`</button>
+                        </div>
+                        
+                        <p id="boxDescription" class="box-explain-text">Both boxes are currently fully active and rendered.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Multi-column newspaper section (CSS3 Exercise 9) -->
+        <section id="bulletin" class="bulletin-section">
+            <h2 style="color: #ef4444;">📰 Weekly Community Bulletin</h2> <!-- CSS3 Ex 1: Inline heading color -->
+            <p class="section-desc">Stay informed about local council news, administrative reforms, and neighborhood updates.</p>
+            
+            <!-- CSS3 Ex 9: news article formatted via column-count columns -->
+            <article class="bulletin-columns">
+                <h3>Spring Council Updates</h3>
+                <p>The municipal council has formally authorized a $2.5 million green energy grant to retro-fit all local civic centers with high-efficiency solar panel modules. This eco-friendly campaign is projected to lower operational expenditures by up to 35% over the next fiscal biennium, redirecting funds back to community recreation and educational programs.</p>
+                
+                <p>Citizens are highly encouraged to participate in the bi-weekly Green Eco Cleanup initiative. The main gathering takes place at Oakridge Nature Reserve every other Saturday morning. Gloves, biodegradable collection sacks, and a celebratory fresh-pressed juice bar will be supplied by our municipal sponsors at the end of the cleanups.</p>
+                
+                <h3>New Library Wing Construction</h3>
+                <p>Construction crews have finalized structural steel framing for the new East-Wing library expansion. The state-of-the-art facility will feature a dedicated children's reading sanctuary, a high-speed digital fabrication workspace complete with 3D printers, and group study chambers for secondary school students. Opening ceremonies are planned for early August.</p>
+                
+                <p>Additionally, the council is expanding public Wi-Fi access coverage to cover municipal parks and plaza squares, helping freelancers work outdoors under shade. Feedback on this project is welcomed on our feedback form.</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <!-- HTML5 Exercise 1: Semantic Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Metro City Council. All rights reserved. Created for educational HTML5 & CSS3 workshops.</p>
+            <p class="footer-links">
+                <a href="#welcome">Home</a> | 
+                <a href="#events">Gallery</a> | 
+                <a href="#register">Register</a> | 
+                <a href="help.html" target="_blank">FAQ Support</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript script include -->
+    <script src="script.js"></script>
+</body>
+</html>

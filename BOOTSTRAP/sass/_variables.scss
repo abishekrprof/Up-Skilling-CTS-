@@ -1,0 +1,23 @@
+/* ==========================================================================
+   BOOTSTRAP 5 SASS CUSTOMIZATION VARIABLES (Exercise 19.2)
+   ========================================================================== */
+
+// 1. Customize Theme Colors
+// We override the default primary blue with a premium civic emerald/teal.
+$primary: #0f766e; // Dark Teal
+$secondary: #0f172a; // Slate Dark
+$success: #10b981; // Vibrant Emerald Green
+$warning: #f59e0b; // Bright Amber Yellow
+$danger: #ef4444;  // Red Coral
+$info: #06b6d4;    // Cyan Sky
+
+// 2. Customize Layout & Borders
+// Set global card border-radius to a modern, slightly rounded style
+$border-radius: 12px;
+$border-radius-lg: 16px;
+$border-radius-sm: 8px;
+
+// 3. Customize Font Sizing & Weights
+$font-family-sans-serif: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$enable-gradients: true;
+$enable-shadows: true;
