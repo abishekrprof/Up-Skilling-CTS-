@@ -8,7 +8,7 @@
     <!-- External stylesheet for dynamic styles -->
     <link rel="stylesheet" href="styles.css">
     
-    <!-- jQuery for Exercise 14 jQuery Integration -->
+    <!-- jQuery Core Integration -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -21,14 +21,14 @@
             <p>A lightweight, browser-based dynamic registry powered by advanced, modern JavaScript.</p>
         </header>
 
-        <!-- Search and Filters Panel (Exercise 8 Event Handling) -->
+        <!-- Search and Filters Panel -->
         <div class="controls-panel">
-            <!-- Search bar: onkeydown and input capture -->
+            <!-- Search bar input capture -->
             <div class="search-wrapper">
                 <input type="text" id="searchBar" placeholder="Quick search event by name..." onkeydown="handleQuickSearch(event)">
             </div>
             
-            <!-- Category Filter: onchange action -->
+            <!-- Category Filter selection -->
             <div class="filter-wrapper">
                 <label for="categoryFilter">Category:</label>
                 <select id="categoryFilter" onchange="handleCategoryFilter(this.value)">
@@ -46,9 +46,9 @@
         <!-- Layout Split: Main list & interactive closure panel -->
         <div class="layout-split">
             
-            <!-- Dynamic Event Cards Section (Exercise 7 DOM Manipulation) -->
+            <!-- Dynamic Event Cards Section -->
             <main>
-                <!-- Loading Spinner (Exercise 9 Async JS / Spinner loader) -->
+                <!-- Loading Spinner -->
                 <div id="loadingSpinner" class="loader-spinner">
                     <div class="spinner"></div>
                     <p>Loading community events database from secure mock API...</p>
@@ -58,10 +58,10 @@
                 <div id="eventsGrid" class="events-grid"></div>
             </main>
 
-            <!-- Real-time analytics dashboard (Exercises 4, 5, 6 scope, closures, objects, arrays) -->
+            <!-- Real-time analytics dashboard -->
             <aside class="sidebar-panel">
                 
-                <!-- Category registrations tracked via Closures (Exercise 4) -->
+                <!-- Category registrations tracked dynamically -->
                 <div class="dashboard-card">
                     <h2>📊 Category Registrations</h2>
                     <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; margin-top: -10px;">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <!-- Objects, Prototypes and Object Entries (Exercise 5) -->
+                <!-- Objects, Prototypes and Object Entries -->
                 <div class="dashboard-card">
                     <h2>🔍 Object Diagnostic Console</h2>
                     <div id="prototypeConsole" style="background: rgba(15,23,42,0.6); border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.8rem; height: 180px; overflow-y: auto;">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <!-- jQuery & Framework mention (Exercise 14) -->
+                <!-- Integration Notes -->
                 <div class="dashboard-card">
                     <h2>💡 System Integration</h2>
                     <div style="font-size: 0.9rem; color: #cbd5e1;">
@@ -104,7 +104,7 @@
 
     </div>
 
-    <!-- Registration Modal Form (Exercise 11 Working with Forms) -->
+    <!-- Registration Modal Form -->
     <div id="registerModal" class="modal-backdrop">
         <div class="modal-box">
             <button class="modal-close-btn" onclick="closeRegistrationModal()">&times;</button>
@@ -131,7 +131,7 @@
         </div>
     </div>
 
-    <!-- main.js script link (Exercise 1) -->
+    <!-- Main dynamic logic link -->
     <script src="main.js"></script>
 </body>
 </html>

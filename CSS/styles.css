@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CSS3 EXERCISES: PORTAL DESIGN SYSTEM
+   PORTAL DESIGN SYSTEM
    Theme: Local Community Event Portal (Modern Dark Glassmorphism)
    ========================================================================== */
 
@@ -7,14 +7,12 @@
    1. Reset & Global Selectors
    ========================================================================== */
 
-/* CSS3 Exercise 3: Universal selector (*) to reset margin/padding, ensure border-box sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* CSS3 Exercise 4: Body styling with background color fallback and premium radial gradient */
 body {
     font-family: 'Outfit', sans-serif;
     background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
@@ -25,7 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-/* CSS3 Exercise 3: Element selector to style all <h2> tags with high-contrast gradient text */
 h2 {
     font-size: 2.2rem;
     font-weight: 700;
@@ -37,7 +34,6 @@ h2 {
     display: inline-block;
 }
 
-/* CSS3 Exercise 3: Grouping selector for h3, p to establish consistent line spacing and color */
 h3, p {
     color: #94a3b8;
     line-height: 1.7;
@@ -50,7 +46,6 @@ h3 {
     margin-bottom: 8px;
 }
 
-/* HTML5 Ex 3: .highlight class style for bold focus accenting */
 .highlight {
     background: linear-gradient(120deg, rgba(56, 189, 248, 0.2) 0%, rgba(129, 140, 248, 0.2) 100%);
     color: #38bdf8;
@@ -59,7 +54,6 @@ h3 {
     font-weight: 600;
 }
 
-/* Helper descriptive labels for sections */
 .section-desc {
     font-size: 1.1rem;
     margin-bottom: 24px;
@@ -70,7 +64,6 @@ h3 {
    2. Header & Navigation Styles
    ========================================================================== */
 
-/* CSS3 Exercise 3: ID selector #mainHeader for styling the sticky navigation banner */
 #mainHeader {
     position: sticky;
     top: 0;
@@ -100,21 +93,18 @@ h3 {
     gap: 8px;
 }
 
-/* CSS3 Exercise 6: List Styling & Navigation Layout */
 nav ul.nav-links {
-    list-style-type: none; /* Remove bullets from navigation menus */
+    list-style-type: none;
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* CSS3 Exercise 6: Link Styling with custom margins/paddings and interactive pseudo-classes */
 nav ul.nav-links li {
     margin: 0;
-    padding: 4px 8px; /* Padding for tap targets */
+    padding: 4px 8px;
 }
 
-/* CSS3 Exercise 6: Anchor pseudo-classes (:link, :visited, :hover, :active) */
 nav ul.nav-links a:link, 
 nav ul.nav-links a:visited {
     color: #cbd5e1;
@@ -134,7 +124,6 @@ nav ul.nav-links a:active {
     color: #0284c7;
 }
 
-/* Specialized Help Button link design */
 .help-btn {
     border: 1px solid rgba(56, 189, 248, 0.4);
     padding: 8px 16px;
@@ -162,8 +151,6 @@ section {
     margin-bottom: 60px;
 }
 
-/* CSS3 Exercise 3: Class selector .eventCard for styling generic glass containers */
-/* CSS3 Exercise 8: Control card spacing using padding, margin, borders, and shadows */
 .eventCard {
     background: rgba(30, 41, 59, 0.4);
     backdrop-filter: blur(12px);
@@ -195,11 +182,10 @@ section {
     margin-top: 20px;
 }
 
-/* CSS3 Exercise 7: Event admin/archive table layout styles */
 .gallery-table {
     width: 100%;
-    border-collapse: collapse; /* Ensure single collapsed borders */
-    text-align: center; /* Center-align table text content */
+    border-collapse: collapse;
+    text-align: center;
 }
 
 .gallery-table caption {
@@ -226,12 +212,10 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* CSS3 Exercise 7: Zebra striping using nth-child(even) selector */
 .gallery-table tbody tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* Gallery image elements styled with border class */
 .gallery-img {
     width: 100%;
     max-width: 250px;
@@ -258,11 +242,11 @@ section {
 }
 
 /* ==========================================================================
-   5. Double-click Image Enlargement Modal (HTML5 Ex 6)
+   5. Double-click Image Enlargement Modal
    ========================================================================== */
 
 .modal-backdrop {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 200;
     left: 0;
@@ -377,7 +361,6 @@ video {
     margin-left: 2px;
 }
 
-/* Form Fields Input/Select/Textarea Styling */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -395,7 +378,6 @@ textarea {
     transition: all 0.3s ease;
 }
 
-/* CSS3 Exercise 8: Outline highlight on selected fields in a form */
 input:focus,
 select:focus,
 textarea:focus {
@@ -405,13 +387,11 @@ textarea:focus {
     background: rgba(15, 23, 42, 0.8);
 }
 
-/* Specific select dropdown arrow fix for dark theme styling */
 select option {
     background-color: #0f172a;
     color: #f1f5f9;
 }
 
-/* Validation styles */
 .field-error {
     color: #f87171;
     font-size: 0.85rem;
@@ -426,7 +406,6 @@ select option {
     text-align: right;
 }
 
-/* Event Fee Dynamic display styling */
 .fee-display-wrapper {
     background: rgba(15, 23, 42, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -448,7 +427,6 @@ select option {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Buttons (CTA, Clear and Geo Widgets) */
 .cta-button {
     width: 100%;
     background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
@@ -489,11 +467,6 @@ select option {
     background: rgba(248, 113, 113, 0.2);
 }
 
-/* Confirmation Output message container */
-.output-wrapper {
-    margin-top: 20px;
-}
-
 .confirmation-success {
     display: block;
     background: rgba(34, 197, 94, 0.15);
@@ -504,11 +477,11 @@ select option {
     font-size: 0.95rem;
     font-weight: 500;
     text-align: center;
-    display: none; /* Shown dynamically upon form completion */
+    display: none;
 }
 
 /* ==========================================================================
-   8. Sidebar Geolocation & Sandbox widgets
+   8. Sidebar Widgets
    ========================================================================== */
 
 .geo-button {
@@ -546,7 +519,6 @@ select option {
     color: #e2e8f0;
 }
 
-/* Sandbox comparison grid layouts */
 .demo-boxes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -610,16 +582,15 @@ select option {
     padding-top: 40px;
 }
 
-/* CSS3 Exercise 9: multi-column layout on article element */
 .bulletin-columns {
-    column-count: 2; /* Format news article in 2 columns like a newspaper */
-    column-gap: 30px; /* Width gap between columns */
-    column-rule: 1px solid rgba(255, 255, 255, 0.15); /* Gray separator line */
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid rgba(255, 255, 255, 0.15);
     text-align: justify;
 }
 
 .bulletin-columns h3 {
-    column-span: none; /* Keep heading nested inside columns flow */
+    column-span: none;
     margin-top: 15px;
     color: #38bdf8;
 }
@@ -661,13 +632,11 @@ select option {
 }
 
 /* ==========================================================================
-   11. Responsive Web Design (CSS3 Exercise 10)
+   11. Responsive Web Design
    ========================================================================== */
 
-/* CSS3 Ex 10: Media query for screens smaller than 768px (Tablets & Mobile) */
 @media screen and (max-width: 768px) {
     
-    /* 1. Header Navigation Links: Stack vertically instead of horizontal row */
     .header-container {
         flex-direction: column;
         gap: 15px;
@@ -690,22 +659,19 @@ select option {
         width: 80%;
     }
     
-    /* 2. Grid systems: Stack sections vertically instead of columns */
     .register-grid {
-        grid-template-columns: 1fr; /* Single column */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     
-    /* 3. Typography & Spacing: Reduce sizes slightly for smaller viewport */
     h2 {
-        font-size: 1.8rem; /* Smaller section headings */
+        font-size: 1.8rem;
     }
     
     .main-content {
         margin: 20px auto;
     }
     
-    /* 4. Table and Image size responsiveness */
     .gallery-table th, 
     .gallery-table td {
         padding: 8px 4px;
@@ -713,15 +679,14 @@ select option {
     }
     
     .gallery-img {
-        max-width: 100%; /* Fully flexible with screen percentages */
+        max-width: 100%;
         height: auto;
         aspect-ratio: 16/10;
         border-width: 2px;
     }
     
-    /* 5. Newspaper columns: Collapse to single column on small screens */
     .bulletin-columns {
-        column-count: 1; /* Remove columns for readable mobile scrolling */
+        column-count: 1;
         column-gap: 0;
         column-rule: none;
     }

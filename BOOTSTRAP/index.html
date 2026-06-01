@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Civic Portal | Metro Council</title>
     
-    <!-- Exercise 1.1: Bootstrap 5 CSS via CDN -->
+    <!-- Bootstrap 5 CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
-    <!-- Exercise 17.1: Bootstrap Icons via CDN -->
+    <!-- Bootstrap Icons via CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <!-- Custom styling Google Fonts -->
+    <!-- Google Fonts for Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
 <body>
 
     <!-- ==========================================
-         EXERCISE 10.1 & 6.1: Responsive Flex Navbar
+         TOP NAVIGATION BAR
          ========================================== -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top shadow-sm px-3">
         <div class="container-fluid">
@@ -64,7 +64,7 @@
     </nav>
 
     <!-- ==========================================
-         EXERCISE 7: Typography & Jumbotron Header
+         HERO SECTION
          ========================================== -->
     <div class="container my-4">
         <div class="p-5 mb-4 hero-banner rounded-3 text-center text-md-start">
@@ -72,7 +72,7 @@
                 <div class="col-md-8">
                     <h1 class="display-3 fw-bold">Metro City Council Portal</h1>
                     <p class="lead mt-3">Empowering citizens through state-of-the-art interactive systems, responsive grids, and direct access to municipal registrations.</p>
-                    <p class="text-light opacity-75 small"><i class="bi bi-info-circle"></i> Compiled & designed using <strong class="text-uppercase text-info">Bootstrap 5</strong> design systems.</p>
+                    <p class="text-light opacity-75 small"><i class="bi bi-info-circle"></i> Compiled & designed using the Bootstrap 5 design system.</p>
                 </div>
                 <div class="col-md-4 text-center d-none d-md-block">
                     <i class="bi bi-shield-check text-info" style="font-size: 8rem;"></i>
@@ -82,7 +82,7 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 10.2: Navigation Tabs & Pills
+         NAVIGATION TABS & PILLS
          ========================================== -->
     <div class="container mb-5">
         <ul class="nav nav-pills mb-3 justify-content-center justify-content-md-start" id="pills-tab" role="tablist">
@@ -99,19 +99,18 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 3 & 4.2: Grid Columns & Layouts
+         RESPONSIVE GRID SHOWCASE
          ========================================== -->
     <div class="container my-5">
         <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-grid-3x3-gap"></i> Responsive Event Showcase</h2>
         
-        <!-- Exercise 3.1 & 3.2: 3 Columns: mobile stacks, tablets 2-per-row, desktop 3-per-row -->
+        <!-- 3 Columns: Stacks on mobile, 2 per row on tablets, 3 per row on desktops -->
         <div class="row g-4">
             
-            <!-- Column 1 -->
+            <!-- Food Festival Card -->
             <div class="col-12 col-md-6 col-lg-4">
-                <!-- Exercise 11.1 & 15.2: Cards with shadows and rounded features -->
                 <div class="card h-100 shadow-sm border-0 profile-premium-card">
-                    <!-- Exercise 16.2: Badge overlay over image using relative/absolute positioning -->
+                    <!-- Badge overlay with positioning utilities -->
                     <div class="position-relative">
                         <img src="images/food_festival.png" class="card-img-top" alt="Food Festival">
                         <span class="position-absolute top-0 start-0 m-3 badge bg-danger rounded-pill shadow-sm"><i class="bi bi-fire"></i> Trending</span>
@@ -127,7 +126,7 @@
                 </div>
             </div>
 
-            <!-- Column 2 -->
+            <!-- Art Exhibition Card -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm border-0 profile-premium-card">
                     <div class="position-relative">
@@ -145,7 +144,7 @@
                 </div>
             </div>
 
-            <!-- Column 3 -->
+            <!-- Park Concert Card -->
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card h-100 shadow-sm border-0 profile-premium-card">
                     <div class="position-relative">
@@ -167,12 +166,12 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 4.1, 5, 14.2: Layout, Sidebar & Reordering
+         SIDEBAR & REORDERING LAYOUT
          ========================================== -->
     <div class="container my-5" id="registry">
         <div class="row align-items-center justify-content-center g-4">
             
-            <!-- Exercise 14.2 & 4.1: Sidebar (col-md-3) displaying only on md and above -->
+            <!-- Sidebar widget shown only on md and above -->
             <div class="col-md-3 d-none d-md-block order-md-1">
                 <div class="card bg-gradient bg-dark text-white p-3 shadow rounded-lg border-0">
                     <h5 class="fw-bold mb-3"><i class="bi bi-layout-sidebar-inset"></i> Admin Bulletin</h5>
@@ -184,13 +183,12 @@
                 </div>
             </div>
 
-            <!-- Content Area (col-md-9) with column reordering (Exercise 5) -->
+            <!-- Content Area with equal subgrid sections -->
             <div class="col-12 col-md-9 order-md-2">
                 <div class="p-4 bg-white border border-light shadow-sm rounded-3">
                     <h2 class="h4 fw-bold text-dark mb-3"><i class="bi bi-card-text"></i> Quick Portal Statistics</h2>
-                    <p class="text-muted">A quick review of our event database numbers. Structured using 4 equal responsive grid sections (Exercise 4.2).</p>
+                    <p class="text-muted">A quick review of our event database numbers. Structured using 4 equal responsive grid sections.</p>
                     
-                    <!-- Exercise 4.2: Four equal columns (col-sm-3) -->
                     <div class="row g-3 text-center mt-2">
                         <div class="col-6 col-sm-3">
                             <div class="p-3 border rounded bg-light">
@@ -224,15 +222,14 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 11.2 & 11.1: Cards, Profile & Media Objects
+         PROFILE & MEDIA OBJECTS
          ========================================== -->
     <div class="container my-5">
         <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-person-bounding-box"></i> Representative Profile</h2>
         <div class="card p-4 border-0 shadow-sm bg-white">
             <div class="row align-items-center">
-                <!-- Media Object layout: Image to the left -->
+                <!-- Media Object layout -->
                 <div class="col-12 col-md-3 text-center mb-3 mb-md-0">
-                    <!-- Exercise 15.1: primary borders and rounded circles on image -->
                     <img src="images/art_exhibition.png" class="rounded-circle border border-primary border-3 shadow" style="width: 140px; height: 140px; object-fit: cover;" alt="Representative Profile">
                 </div>
                 <div class="col-12 col-md-9 text-center text-md-start">
@@ -249,25 +246,25 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 8: Floating Labels Login Form
+         SECURE MEMBER LOGIN & FORM STYLING
          ========================================== -->
     <div class="container my-5" id="bookings">
         <div class="row justify-content-center g-4">
             
-            <!-- Floating labels login form (Exercise 8.2) -->
+            <!-- Secure Member Login with Floating Labels -->
             <div class="col-12 col-lg-5">
                 <div class="p-4 bg-white shadow-sm border rounded-3 h-100">
                     <h4 class="fw-bold mb-3 text-dark"><i class="bi bi-shield-lock"></i> Secure Member Login</h4>
                     <p class="text-muted small">Access customized administrative functions using your registered login credentials.</p>
                     
                     <form>
-                        <!-- Email Input with Floating Label -->
+                        <!-- Email Input -->
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput"><i class="bi bi-envelope-at text-muted"></i> Email address</label>
                         </div>
                         
-                        <!-- Password Input with Floating Label -->
+                        <!-- Password Input -->
                         <div class="form-floating mb-3">
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword"><i class="bi bi-key text-muted"></i> Security Password</label>
@@ -283,7 +280,7 @@
                 </div>
             </div>
 
-            <!-- Standard Registration form layout (Exercise 8.1) -->
+            <!-- Standard Registration form layout -->
             <div class="col-12 col-lg-7">
                 <div class="p-4 bg-white shadow-sm border rounded-3 h-100">
                     <h4 class="fw-bold mb-3 text-dark"><i class="bi bi-pencil-square"></i> General Event Registration</h4>
@@ -330,19 +327,17 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 12: Pricing Section demonstrating Spacing
+         PRICING TABLE WITH SPACING UTILITIES
          ========================================== -->
     <div class="container my-5" id="pricing">
         <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-currency-dollar"></i> Spacing & Pricing Layout</h2>
         
-        <!-- Spacing utilities to create padding and margins -->
         <div class="row g-4 justify-content-center text-center">
             
-            <!-- Standard card -->
+            <!-- Standard free card -->
             <div class="col-12 col-md-4">
                 <div class="card p-4 border border-light-subtle shadow-sm bg-white rounded-3">
                     <h5 class="fw-bold text-uppercase text-muted">Free Programs</h5>
-                    <!-- Spacing: py-3 -->
                     <div class="py-3">
                         <span class="display-4 fw-bold text-dark">$0</span>
                         <span class="text-muted">/ event</span>
@@ -377,7 +372,7 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 18.2: Accordion updates
+         COLLAPSIBLE ACCORDION FOR FAQ & BULLETIN
          ========================================== -->
     <div class="container my-5" id="faq">
         <h2 class="h3 fw-bold border-bottom pb-2 mb-4 text-dark"><i class="bi bi-newspaper"></i> Weekly Municipal Updates</h2>
@@ -414,25 +409,25 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 9: Button Groups & Toggle Button States
+         BUTTON GROUPS & TOGGLE STATES
          ========================================== -->
     <div class="container my-5 text-center">
         <h4 class="fw-bold text-dark mb-3"><i class="bi bi-sliders"></i> Alert Settings Playground</h4>
         
-        <!-- Standard Button Group (Exercise 9.2) -->
+        <!-- Standard Button Group -->
         <div class="btn-group me-3 mb-2" role="group">
             <button type="button" class="btn btn-outline-secondary">SMS Alerts</button>
             <button type="button" class="btn btn-outline-secondary">Email Alerts</button>
             <button type="button" class="btn btn-outline-secondary">No Alerts</button>
         </div>
         
-        <!-- Toggle button with checkbox (Exercise 9.2) -->
+        <!-- Toggle button with checkbox -->
         <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
         <label class="btn btn-outline-primary mb-2" for="btncheck1"><i class="bi bi-bell"></i> Enable Emergency Push Notifications</label>
     </div>
 
     <!-- ==========================================
-         EXERCISE 18.1: Interactive JS Modal Trigger
+         INTERACTIVE POPUP MODAL
          ========================================== -->
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -454,13 +449,13 @@
     </div>
 
     <!-- ==========================================
-         EXERCISE 16.1 & 17.1: Fixed Bottom Footer with Icons
+         POSITION FIXED BOTTOM FOOTER
          ========================================== -->
     <footer class="footer position-fixed bottom-0 start-0 w-100 bg-dark text-white py-3 border-top border-secondary z-3">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <span class="small text-secondary">&copy; 2026 Metro City Council. All rights reserved.</span>
             
-            <!-- Social network icons (Exercise 17.1) -->
+            <!-- Social network icons -->
             <div class="d-flex gap-3 mt-2 mt-md-0 fs-5">
                 <a href="#" class="text-white hover-teal"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="text-white hover-teal"><i class="bi bi-twitter-x"></i></a>
@@ -470,7 +465,7 @@
         </div>
     </footer>
 
-    <!-- Exercise 2.2: Bootstrap Bundle JS via CDN (includes Popper for collapses, accordions, modals) -->
+    <!-- Bootstrap Bundle JS via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,11 +1,9 @@
 -- ==========================================================================
--- ANSI SQL Using MySQL - 25 EXERCISES DYNAMIC ANALYTICS SUITE
--- Project Theme: Local Community Event Portal
+-- ANSI SQL USING MYSQL - CIVIL PORTAL ANALYTICS ENGINE
 -- ==========================================================================
 
 -- --------------------------------------------------------------------------
--- 1. User Upcoming Events
--- Task: Show a list of all upcoming events a user is registered for in their city, sorted by date.
+-- Upcoming Event Registrations Matching Citizen Home City
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id,
@@ -24,8 +22,7 @@ ORDER BY e.start_date ASC;
 
 
 -- --------------------------------------------------------------------------
--- 2. Top Rated Events
--- Task: Identify events with the highest average rating, considering only those that have received at least 10 feedback submissions.
+-- Top-Rated Events with Statistically Significant Feedback Counts
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -40,8 +37,7 @@ ORDER BY average_rating DESC, total_feedback_count DESC;
 
 
 -- --------------------------------------------------------------------------
--- 3. Inactive Users
--- Task: Retrieve users who have not registered for any events in the last 90 days.
+-- Inactive Citizens (No Registrations Registered Within 90 Days)
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id,
@@ -59,8 +55,7 @@ ORDER BY u.user_id;
 
 
 -- --------------------------------------------------------------------------
--- 4. Peak Session Hours
--- Task: Count how many sessions are scheduled between 10 AM to 12 PM for each event.
+-- Sessions Running During Peak Hours (10:00 AM to 12:00 PM)
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -75,8 +70,7 @@ ORDER BY peak_sessions_count DESC;
 
 
 -- --------------------------------------------------------------------------
--- 5. Most Active Cities
--- Task: List the top 5 cities with the highest number of distinct user registrations.
+-- Top Active Resident Cities by Total Volume of Registrations
 -- --------------------------------------------------------------------------
 SELECT 
     u.city AS user_city,
@@ -89,8 +83,7 @@ LIMIT 5;
 
 
 -- --------------------------------------------------------------------------
--- 6. Event Resource Summary
--- Task: Generate a report showing the number of resources (PDFs, images, links) uploaded for each event.
+-- Document Resource Types Upload Summary by Event
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -106,8 +99,7 @@ ORDER BY total_uploaded_resources DESC;
 
 
 -- --------------------------------------------------------------------------
--- 7. Low Feedback Alerts
--- Task: List all users who gave feedback with a rating less than 3, along with their comments and associated event names.
+-- Low Rating Alerts (Ratings Under 3 Stars with Comments)
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id,
@@ -124,8 +116,7 @@ ORDER BY f.rating ASC;
 
 
 -- --------------------------------------------------------------------------
--- 8. Sessions per Upcoming Event
--- Task: Display all upcoming events with the count of sessions scheduled for them.
+-- Count of Active Sessions for Upcoming Events
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -140,8 +131,7 @@ ORDER BY e.start_date ASC;
 
 
 -- --------------------------------------------------------------------------
--- 9. Organizer Event Summary
--- Task: For each event organizer, show the number of events created and their current status (upcoming, completed, cancelled).
+-- Organizer Events Creation Summary and Status Metrics
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id AS organizer_id,
@@ -155,8 +145,7 @@ ORDER BY organizer_name ASC, event_status ASC;
 
 
 -- --------------------------------------------------------------------------
--- 10. Feedback Gap
--- Task: Identify events that had registrations but received no feedback at all.
+-- Events with Registrations That Have Zero Submitted Feedback (Feedback Gap)
 -- --------------------------------------------------------------------------
 SELECT DISTINCT
     e.event_id,
@@ -169,8 +158,7 @@ ORDER BY e.event_id;
 
 
 -- --------------------------------------------------------------------------
--- 11. Daily New User Count
--- Task: Find the number of users who registered each day in the last 7 days.
+-- Daily Registration Count of New Portal Citizens (Last 7 Days)
 -- --------------------------------------------------------------------------
 SELECT 
     registration_date,
@@ -182,8 +170,7 @@ ORDER BY registration_date DESC;
 
 
 -- --------------------------------------------------------------------------
--- 12. Event with Maximum Sessions
--- Task: List the event(s) with the highest number of sessions. (Handles ties using a subquery)
+-- Identify Events with the Greatest Number of Associated Sessions
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -203,8 +190,7 @@ HAVING session_count = (
 
 
 -- --------------------------------------------------------------------------
--- 13. Average Rating per City
--- Task: Calculate the average feedback rating of events conducted in each city.
+-- Average Feedback Ratings Grouped by Event City
 -- --------------------------------------------------------------------------
 SELECT 
     e.city AS venue_city,
@@ -217,8 +203,7 @@ ORDER BY average_feedback_rating DESC;
 
 
 -- --------------------------------------------------------------------------
--- 14. Most Registered Events
--- Task: List top 3 events based on the total number of user registrations.
+-- Most Popular Events by Total Citizen Registrations Count
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -232,8 +217,7 @@ LIMIT 3;
 
 
 -- --------------------------------------------------------------------------
--- 15. Event Session Time Conflict
--- Task: Identify overlapping sessions within the same event (session start/end times that conflict).
+-- Conflict Finder: Sessional Time Overlaps within the Same Event
 -- --------------------------------------------------------------------------
 SELECT 
     s1.event_id,
@@ -248,7 +232,7 @@ SELECT
     s2.end_time AS second_session_end
 FROM Sessions s1
 JOIN Sessions s2 ON s1.event_id = s2.event_id 
-    AND s1.session_id < s2.session_id -- Prevents duplicate symmetrical pairs
+    AND s1.session_id < s2.session_id
 JOIN Events e ON s1.event_id = e.event_id
 WHERE s1.start_time < s2.end_time 
   AND s1.end_time > s2.start_time
@@ -256,8 +240,7 @@ ORDER BY s1.event_id;
 
 
 -- --------------------------------------------------------------------------
--- 16. Unregistered Active Users
--- Task: Find users who created an account in the last 30 days but haven’t registered for any events.
+-- Unregistered Citizens Who Opened Accounts Within the Last 30 Days
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id,
@@ -272,8 +255,7 @@ ORDER BY u.registration_date DESC;
 
 
 -- --------------------------------------------------------------------------
--- 17. Multi-Session Speakers
--- Task: Identify speakers who are handling more than one session across all events.
+-- Speakers Assigned to Multiple Sessions Across all Civic Venues
 -- --------------------------------------------------------------------------
 SELECT 
     speaker_name,
@@ -286,8 +268,7 @@ ORDER BY total_sessions_assigned DESC;
 
 
 -- --------------------------------------------------------------------------
--- 18. Resource Availability Check
--- Task: List all events that do not have any resources uploaded.
+-- Events Lacking Any Uploaded Material or Resource Files
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -301,8 +282,7 @@ ORDER BY e.event_id;
 
 
 -- --------------------------------------------------------------------------
--- 19. Completed Events with Feedback Summary
--- Task: For completed events, show total registrations and average feedback rating.
+-- Completed Events Analytics Summary (Total Sign-ups and Avg Ratings)
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -317,8 +297,7 @@ GROUP BY e.event_id, e.title;
 
 
 -- --------------------------------------------------------------------------
--- 20. User Engagement Index
--- Task: For each user, calculate how many events they registered for and how many feedbacks they submitted.
+-- User Engagement Metrics: Total Registrations vs Feedback Submitted
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id,
@@ -333,8 +312,7 @@ ORDER BY total_events_registered DESC, total_feedbacks_submitted DESC;
 
 
 -- --------------------------------------------------------------------------
--- 21. Top Feedback Providers
--- Task: List top 5 users who have submitted the most feedback entries.
+-- Top Active Citizens by Quantity of Submitted Feedback Entries
 -- --------------------------------------------------------------------------
 SELECT 
     u.user_id,
@@ -349,8 +327,7 @@ LIMIT 5;
 
 
 -- --------------------------------------------------------------------------
--- 22. Duplicate Registrations Check
--- Task: Detect if a user has been registered more than once for the same event.
+-- Security Audit: Detect Duplicate User Sign-ups for the Same Event
 -- --------------------------------------------------------------------------
 SELECT 
     user_id,
@@ -362,8 +339,7 @@ HAVING COUNT(registration_id) > 1;
 
 
 -- --------------------------------------------------------------------------
--- 23. Registration Trends
--- Task: Show a month-wise registration count trend over the past 12 months.
+-- Monthly Registration Count and Growth Trends (Past 12 Months)
 -- --------------------------------------------------------------------------
 SELECT 
     DATE_FORMAT(registration_date, '%Y-%m') AS registration_month,
@@ -375,8 +351,7 @@ ORDER BY registration_month ASC;
 
 
 -- --------------------------------------------------------------------------
--- 24. Average Session Duration per Event
--- Task: Compute the average duration (in minutes) of sessions in each event.
+-- Average Session Duration in Minutes per Event
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,
@@ -389,8 +364,7 @@ ORDER BY avg_session_duration_mins DESC;
 
 
 -- --------------------------------------------------------------------------
--- 25. Events Without Sessions
--- Task: List all events that currently have no sessions scheduled under them.
+-- Events Lacking Scheduled Sessional Agendas
 -- --------------------------------------------------------------------------
 SELECT 
     e.event_id,

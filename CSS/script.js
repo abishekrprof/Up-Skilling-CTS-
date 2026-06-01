@@ -1,19 +1,16 @@
 /**
  * ==========================================================================
  * LOCAL COMMUNITY EVENT PORTAL - JAVASCRIPT LOGIC
- * Workshop Level: Beginner-Friendly & Educationally Commented
  * ==========================================================================
  */
 
-// Debugging Note (HTML5 Ex 10): Let's print an initial diagnostic load log.
-// When debugging in Chrome DevTools, check the "Console" tab to verify this runs!
 console.log("[Portal Diagnostic] script.js successfully loaded. Environment ready.");
 
 // Global state tracking to support page unload warnings
 let isFormDirty = false;
 
 // ==========================================================================
-// A. Page Initialization (Prefetch Stored Selections - HTML5 Ex 8)
+// A. Page Initialization (Prefetch Stored Selections)
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
     console.log("[Portal Initialization] Running DOMContentLoaded tasks...");
@@ -26,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const eventDropdown = document.getElementById("eventType");
         
         if (eventDropdown) {
-            // Pre-select the saved preference category
             eventDropdown.value = savedEvent;
-            // Update the fee badge to reflect the pre-selected category
             handleEventTypeChange(savedEvent);
             console.log(`[Preferences applied] Event dropdown pre-selected to "${savedEvent}"`);
         }
@@ -36,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("[Preferences] No previous preferences found in localStorage.");
     }
     
-    // Attach listener to input fields to track form editing (for Ex 7 onbeforeunload)
+    // Attach listener to input fields to track form editing for page leave warning
     const inputs = document.querySelectorAll("#eventForm input, #eventForm textarea, #eventForm select");
     inputs.forEach(input => {
         input.addEventListener("input", () => {
@@ -46,11 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==========================================================================
-// B. Input Validation & Form Feedback Events (HTML5 Ex 5 & Ex 6)
+// B. Input Validation & Form Feedback Events
 // ==========================================================================
 
 /**
- * 1. Phone number format validation on Blur (HTML5 Ex 6)
+ * 1. Phone number format validation on Blur
  * Triggered by 'onblur' when the phone input loses cursor focus.
  */
 function validatePhoneNumber(inputElement) {
@@ -80,7 +75,7 @@ function validatePhoneNumber(inputElement) {
 }
 
 /**
- * 2. Event Type Dropdown onchange Fee Display (HTML5 Ex 6 & Ex 8)
+ * 2. Event Type Dropdown onchange Fee Display
  * Triggered by 'onchange' when a user selects a different option.
  */
 function handleEventTypeChange(selectedValue) {
@@ -99,15 +94,15 @@ function handleEventTypeChange(selectedValue) {
     const feeBadge = document.getElementById("eventFeeBadge");
     
     if (feeBadge && feeSchedule[selectedValue] !== undefined) {
-        // Display selected event fee dynamically
         feeBadge.textContent = feeSchedule[selectedValue];
         
         // Highlight badge animation effect
         feeBadge.style.transform = "scale(1.05)";
         setTimeout(() => feeBadge.style.transform = "scale(1)", 150);
         
-        // HTML5 Exercise 8: Save selected event type preference in localStorage
+        // Save selected event type preference in localStorage
         localStorage.setItem("preferredEventType", selectedValue);
+        
         // Save simple session key to satisfy sessionStorage requirements
         sessionStorage.setItem("lastSelectionTime", new Date().toLocaleTimeString());
         console.log(`[Storage updated] Saved preferredEventType = "${selectedValue}" to localStorage`);
@@ -115,7 +110,7 @@ function handleEventTypeChange(selectedValue) {
 }
 
 /**
- * 3. Character Counter in Accommodations Textarea (HTML5 Ex 6)
+ * 3. Character Counter in Accommodations Textarea
  * Triggered by keyup event to capture text size.
  */
 function countCharacters(textareaElement) {
@@ -135,24 +130,22 @@ function countCharacters(textareaElement) {
 }
 
 /**
- * 4. Submit Button onclick Confirmation check (HTML5 Ex 6)
+ * 4. Submit Button onclick Confirmation check
  * Triggered by 'onclick' on the submit button.
  */
 function confirmClick(event) {
     console.log("[Submit Clicked] Displaying browser confirmation modal...");
     
-    // Confirm dialogue asks the user if they're sure they want to submit
     const proceed = confirm("Are you ready to submit your registration form to the Metro City Council database?");
     
     if (!proceed) {
-        // Cancel submission and prevent form processing if user selects 'Cancel'
         event.preventDefault();
         console.log("[Submit Cancelled] User aborted submission.");
     }
 }
 
 /**
- * 5. Main Form Submit Submission Action (HTML5 Ex 5)
+ * 5. Main Form Submit Submission Action
  * Triggered by 'onsubmit' when form validation passes.
  */
 function handleFormSubmit(event) {
@@ -173,7 +166,7 @@ function handleFormSubmit(event) {
         return;
     }
 
-    // HTML5 Exercise 5: Display confirmation message inside <output> element
+    // Display confirmation message inside <output> element
     const confirmationOutput = document.getElementById("confirmationOutput");
     if (confirmationOutput) {
         confirmationOutput.style.display = "block";
@@ -183,7 +176,6 @@ function handleFormSubmit(event) {
             <small>Category: ${eventName} | Date: ${date}</small>
         `;
         
-        // Scroll smoothly to output
         confirmationOutput.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
     
@@ -193,20 +185,15 @@ function handleFormSubmit(event) {
 }
 
 // ==========================================================================
-// C. Saving & Clearing User Preferences (HTML5 Ex 8)
+// C. Saving & Clearing User Preferences
 // ==========================================================================
 
-/**
- * Clear Preferences clears both localStorage and sessionStorage
- */
 function clearPreferences() {
     console.log("[Clear Preferences] Wiping storage caches...");
     
-    // Clear both storages
     localStorage.removeItem("preferredEventType");
     sessionStorage.clear();
     
-    // Reset dropdown and fee badge
     const dropdown = document.getElementById("eventType");
     if (dropdown) dropdown.value = "";
     
@@ -218,25 +205,20 @@ function clearPreferences() {
 }
 
 // ==========================================================================
-// D. Geolocation Event Coordinates Finder (HTML5 Ex 9)
+// D. Geolocation Event Coordinates Finder
 // ==========================================================================
 
-/**
- * getCurrentPosition query with high accuracy configurations
- */
 function findNearbyEvents() {
     const geoDisplay = document.getElementById("geoDisplay");
     geoDisplay.innerHTML = `<p style="color: #38bdf8;">🛰️ Querying GPS satellites. Please approve browser location prompt...</p>`;
     console.log("[Geolocation API] Request initiated.");
     
-    // Check compatibility
     if (!navigator.geolocation) {
         geoDisplay.innerHTML = "❌ Geolocation is not supported by your current browser.";
         console.error("[Geolocation Error] Not supported by browser.");
         return;
     }
     
-    // High accuracy settings, 5-second timeout, no-cache configurations
     const options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -244,7 +226,6 @@ function findNearbyEvents() {
     };
     
     navigator.geolocation.getCurrentPosition(
-        // Success Callback
         (position) => {
             const lat = position.coords.latitude.toFixed(6);
             const lng = position.coords.longitude.toFixed(6);
@@ -264,7 +245,6 @@ function findNearbyEvents() {
                 </div>
             `;
         },
-        // Error Callback
         (error) => {
             console.error(`[Geolocation Failure] Error code ${error.code}: ${error.message}`);
             let errorText = "❌ An error occurred during geolocation fetch.";
@@ -288,12 +268,9 @@ function findNearbyEvents() {
 }
 
 // ==========================================================================
-// E. Video Media Elements & Navigation Guard (HTML5 Ex 7)
+// E. Video Media Elements & Navigation Guard
 // ==========================================================================
 
-/**
- * 1. Video oncanplay load listener
- */
 function videoReady() {
     const status = document.getElementById("videoStatus");
     if (status) {
@@ -305,15 +282,9 @@ function videoReady() {
     }
 }
 
-/**
- * 2. BeforeUnload warning guard.
- * Warns citizens if they attempt to navigate away after editing the form.
- */
 window.addEventListener("beforeunload", (event) => {
     if (isFormDirty) {
         console.log("[Navigation Guard] User is attempting to leave with unfinished form content.");
-        
-        // Standard code to trigger standard browser leave confirmation dialogue
         event.preventDefault();
         event.returnValue = "You have unsaved changes in your registration form. Are you sure you want to leave?";
         return event.returnValue;
@@ -321,12 +292,9 @@ window.addEventListener("beforeunload", (event) => {
 });
 
 // ==========================================================================
-// F. Image Enlarge Double-Click Modal Events (HTML5 Ex 6)
+// F. Image Enlarge Double-Click Modal Events
 // ==========================================================================
 
-/**
- * 1. Double Click enlarges the image by opening a full page modal overlay.
- */
 function enlargeImage(imgElement) {
     const modal = document.getElementById("imageModal");
     const enlargedImg = document.getElementById("enlargedImg");
@@ -340,9 +308,6 @@ function enlargeImage(imgElement) {
     }
 }
 
-/**
- * 2. Closes the enlargement modal
- */
 function closeModal() {
     const modal = document.getElementById("imageModal");
     if (modal) {
@@ -352,7 +317,7 @@ function closeModal() {
 }
 
 // ==========================================================================
-// G. Sandbox Box Model Helper: display vs visibility (CSS3 Ex 8)
+// G. Sandbox Box Model Helper: display vs visibility
 // ==========================================================================
 
 let displayState = true;
